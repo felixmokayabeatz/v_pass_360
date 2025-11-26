@@ -220,12 +220,13 @@
             flex: 1;
             min-width: 200px;
             max-width: 220px;
-            border: 2px solid rgba(45, 27, 105, 0.1);
+            border: 2px solid rgba(45, 27, 105, 0.2);
             transition: var(--transition);
             transform-style: preserve-3d;
             transform: rotateY(15deg) translateZ(0);
             opacity: 0;
             position: relative;
+            overflow: hidden;
         }
 
         .cycle-step::before {
@@ -265,6 +266,20 @@
             color: var(--primary);
             margin-bottom: 15px;
             font-size: 1.3rem;
+            transition: var(--transition);
+            position: relative;
+            z-index: 2;
+        }
+
+        .cycle-step p {
+            transition: var(--transition);
+            position: relative;
+            z-index: 2;
+        }
+
+        .cycle-step:hover h3,
+        .cycle-step:hover p {
+            color: white;
         }
 
         /* Visualization Board */
@@ -306,7 +321,7 @@
             box-shadow: var(--shadow);
             border: 3px solid var(--secondary);
             transition: var(--transition);
-            transform: scale(0) rotateX(180deg);
+            transform: scale(0) rotateX(0);
             animation: pulse 2s infinite;
             position: relative;
         }
@@ -335,7 +350,7 @@
         }
 
         .solution-center:hover {
-            transform: scale(1.05) rotateY(10deg);
+            transform: scale(1.05);
             animation: none;
         }
 
@@ -365,10 +380,11 @@
             font-weight: 600;
             color: var(--primary);
             transition: var(--transition);
-            transform: translateY(20px) rotateX(30deg);
+            transform: translateY(20px);
             opacity: 0;
-            border: 1px solid rgba(45, 27, 105, 0.1);
+            border: 2px solid rgba(45, 27, 105, 0.2);
             position: relative;
+            overflow: hidden;
         }
 
         .challenge::before {
@@ -392,12 +408,11 @@
 
         .challenge.animate {
             opacity: 1;
-            transform: translateY(0) rotateX(0);
+            transform: translateY(0);
         }
 
         .challenge:hover {
-            transform: translateY(-5px) rotateY(10deg);
-            background: var(--primary);
+            transform: translateY(-5px);
             color: white;
         }
 
@@ -409,10 +424,11 @@
             box-shadow: var(--shadow);
             margin-bottom: 30px;
             transition: var(--transition);
-            transform: translateY(20px) rotateX(5deg);
+            transform: translateY(20px);
             opacity: 0;
-            border: 2px solid rgba(45, 27, 105, 0.1);
+            border: 2px solid rgba(45, 27, 105, 0.2);
             position: relative;
+            overflow: hidden;
         }
 
         .card::before {
@@ -436,11 +452,11 @@
 
         .card.animate {
             opacity: 1;
-            transform: translateY(0) rotateX(0);
+            transform: translateY(0);
         }
 
         .card:hover {
-            transform: translateY(-5px) rotateY(5deg);
+            transform: translateY(-5px);
             box-shadow: 0 15px 30px rgba(0,0,0,0.15);
         }
 
@@ -448,6 +464,20 @@
             color: var(--primary);
             margin-bottom: 15px;
             font-size: 1.4rem;
+            transition: var(--transition);
+            position: relative;
+            z-index: 2;
+        }
+
+        .card p {
+            transition: var(--transition);
+            position: relative;
+            z-index: 2;
+        }
+
+        .card:hover h3,
+        .card:hover p {
+            color: white;
         }
 
         /* Founder Section */
@@ -471,7 +501,7 @@
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
-            transform: perspective(1000px) rotateY(-15deg) translateZ(0);
+            transform: perspective(1000px) rotateY(-5deg) translateZ(0);
             border: 3px solid rgba(45, 27, 105, 0.2);
             position: relative;
         }
@@ -496,13 +526,18 @@
         }
 
         .founder-image:hover {
-            transform: perspective(1000px) rotateY(0) translateZ(20px);
+            transform: perspective(1000px) rotateY(0) translateZ(10px);
         }
 
         .founder-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .founder-image:hover img {
+            transform: scale(1.03);
         }
 
         .founder-info {
@@ -538,10 +573,11 @@
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
-            transform: translateY(20px) rotateX(5deg);
+            transform: translateY(20px);
             opacity: 0;
-            border: 2px solid rgba(45, 27, 105, 0.1);
+            border: 2px solid rgba(45, 27, 105, 0.2);
             position: relative;
+            overflow: hidden;
         }
 
         .team-member::before {
@@ -565,11 +601,11 @@
 
         .team-member.animate {
             opacity: 1;
-            transform: translateY(0) rotateX(0);
+            transform: translateY(0);
         }
 
         .team-member:hover {
-            transform: translateY(-10px) rotateY(10deg);
+            transform: translateY(-10px);
         }
 
         .team-image {
@@ -580,12 +616,18 @@
             justify-content: center;
             color: white;
             overflow: hidden;
+            border-bottom: 2px solid rgba(45, 27, 105, 0.2);
         }
 
         .team-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .team-member:hover .team-image img {
+            transform: scale(1.05);
         }
 
         .team-info {
@@ -597,12 +639,24 @@
             font-size: 1.3rem;
             color: var(--primary);
             margin-bottom: 5px;
+            transition: var(--transition);
+            position: relative;
+            z-index: 2;
         }
 
         .team-role {
             color: var(--secondary);
             font-weight: 600;
             margin-bottom: 10px;
+            transition: var(--transition);
+            position: relative;
+            z-index: 2;
+        }
+
+        .team-member:hover .team-name,
+        .team-member:hover .team-role,
+        .team-member:hover .team-info p {
+            color: white;
         }
 
         /* Why Us Grid */
@@ -621,10 +675,11 @@
             text-align: center;
             border-left: 4px solid var(--secondary);
             transition: var(--transition);
-            transform: translateY(20px) rotateX(5deg);
+            transform: translateY(20px);
             opacity: 0;
-            border: 2px solid rgba(45, 27, 105, 0.1);
+            border: 2px solid rgba(45, 27, 105, 0.2);
             position: relative;
+            overflow: hidden;
         }
 
         .why-card::before {
@@ -648,11 +703,11 @@
 
         .why-card.animate {
             opacity: 1;
-            transform: translateY(0) rotateX(0);
+            transform: translateY(0);
         }
 
         .why-card:hover {
-            transform: translateY(-10px) rotateY(5deg);
+            transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0,0,0,0.15);
         }
 
@@ -661,15 +716,32 @@
             color: var(--secondary);
             margin-bottom: 20px;
             transition: var(--transition);
+            position: relative;
+            z-index: 2;
         }
 
         .why-card:hover i {
-            transform: scale(1.2) rotateY(180deg);
+            transform: scale(1.2);
+            color: white;
         }
 
         .why-card h3 {
             color: var(--primary);
             margin-bottom: 15px;
+            transition: var(--transition);
+            position: relative;
+            z-index: 2;
+        }
+
+        .why-card p {
+            transition: var(--transition);
+            position: relative;
+            z-index: 2;
+        }
+
+        .why-card:hover h3,
+        .why-card:hover p {
+            color: white;
         }
 
         /* Timeline */
@@ -683,17 +755,17 @@
             margin-bottom: 30px;
             align-items: flex-start;
             opacity: 0;
-            transform: translateX(-50px) rotateY(30deg);
+            transform: translateX(-50px);
             transition: opacity 0.8s, transform 0.8s;
         }
 
         .timeline-item:nth-child(even) {
-            transform: translateX(50px) rotateY(-30deg);
+            transform: translateX(50px);
         }
 
         .timeline-item.animate {
             opacity: 1;
-            transform: translateX(0) rotateY(0);
+            transform: translateX(0);
         }
 
         .timeline-number {
@@ -714,7 +786,7 @@
 
         .timeline-item:hover .timeline-number {
             background: var(--secondary);
-            transform: scale(1.1) rotateY(180deg);
+            transform: scale(1.1);
         }
 
         .timeline-content {
@@ -724,8 +796,9 @@
             border-radius: 8px;
             box-shadow: 0 3px 10px rgba(0,0,0,0.08);
             transition: var(--transition);
-            border: 2px solid rgba(45, 27, 105, 0.1);
+            border: 2px solid rgba(45, 27, 105, 0.2);
             position: relative;
+            overflow: hidden;
         }
 
         .timeline-content::before {
@@ -748,13 +821,27 @@
         }
 
         .timeline-item:hover .timeline-content {
-            transform: translateX(5px) rotateY(5deg);
+            transform: translateX(5px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
         .timeline-content h3 {
             color: var(--primary);
             margin-bottom: 10px;
+            transition: var(--transition);
+            position: relative;
+            z-index: 2;
+        }
+
+        .timeline-content p {
+            transition: var(--transition);
+            position: relative;
+            z-index: 2;
+        }
+
+        .timeline-content:hover h3,
+        .timeline-content:hover p {
+            color: white;
         }
 
         /* Services Grid */
@@ -772,10 +859,11 @@
             box-shadow: 0 3px 10px rgba(0,0,0,0.08);
             border-left: 4px solid var(--accent);
             transition: var(--transition);
-            transform: translateY(20px) rotateX(5deg);
+            transform: translateY(20px);
             opacity: 0;
-            border: 2px solid rgba(45, 27, 105, 0.1);
+            border: 2px solid rgba(45, 27, 105, 0.2);
             position: relative;
+            overflow: hidden;
         }
 
         .service-card::before {
@@ -799,17 +887,31 @@
 
         .service-card.animate {
             opacity: 1;
-            transform: translateY(0) rotateX(0);
+            transform: translateY(0);
         }
 
         .service-card:hover {
-            transform: translateY(-5px) rotateY(5deg);
+            transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
 
         .service-card h3 {
             color: var(--primary);
             margin-bottom: 10px;
+            transition: var(--transition);
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-card p {
+            transition: var(--transition);
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-card:hover h3,
+        .service-card:hover p {
+            color: white;
         }
 
         /* Training */
@@ -846,7 +948,7 @@
         }
 
         .training-list li:hover:before {
-            transform: scale(1.3) rotateY(180deg);
+            transform: scale(1.3);
         }
 
         .methods-grid {
@@ -862,8 +964,9 @@
             box-shadow: 0 3px 10px rgba(0,0,0,0.08);
             text-align: center;
             transition: var(--transition);
-            border: 2px solid rgba(45, 27, 105, 0.1);
+            border: 2px solid rgba(45, 27, 105, 0.2);
             position: relative;
+            overflow: hidden;
         }
 
         .method::before {
@@ -886,7 +989,7 @@
         }
 
         .method:hover {
-            transform: translateY(-5px) rotateY(5deg);
+            transform: translateY(-5px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
@@ -896,10 +999,23 @@
             color: var(--accent);
             margin-bottom: 10px;
             transition: var(--transition);
+            position: relative;
+            z-index: 2;
         }
 
         .method:hover .method-number {
-            transform: scale(1.2) rotateY(180deg);
+            transform: scale(1.2);
+            color: white;
+        }
+
+        .method p {
+            transition: var(--transition);
+            position: relative;
+            z-index: 2;
+        }
+
+        .method:hover p {
+            color: white;
         }
 
         /* Portfolio Grid */
@@ -919,14 +1035,15 @@
             font-weight: 600;
             color: var(--primary);
             transition: var(--transition);
-            transform: scale(0.9) rotateX(30deg);
+            transform: scale(0.9);
             opacity: 0;
             display: flex;
             align-items: center;
             justify-content: center;
             min-height: 100px;
-            border: 2px solid rgba(45, 27, 105, 0.1);
+            border: 2px solid rgba(45, 27, 105, 0.2);
             position: relative;
+            overflow: hidden;
         }
 
         .portfolio-item::before {
@@ -950,13 +1067,11 @@
 
         .portfolio-item.animate {
             opacity: 1;
-            transform: scale(1) rotateX(0);
+            transform: scale(1);
         }
 
         .portfolio-item:hover {
-            transform: translateY(-5px) scale(1.05) rotateY(10deg);
-            background: var(--primary);
-            color: white;
+            transform: translateY(-5px) scale(1.05);
         }
 
         .portfolio-logo {
@@ -985,10 +1100,11 @@
             box-shadow: 0 3px 10px rgba(0,0,0,0.08);
             text-align: center;
             transition: var(--transition);
-            transform: translateY(20px) rotateX(5deg);
+            transform: translateY(20px);
             opacity: 0;
-            border: 2px solid rgba(45, 27, 105, 0.1);
+            border: 2px solid rgba(45, 27, 105, 0.2);
             position: relative;
+            overflow: hidden;
         }
 
         .value-card::before {
@@ -1012,11 +1128,11 @@
 
         .value-card.animate {
             opacity: 1;
-            transform: translateY(0) rotateX(0);
+            transform: translateY(0);
         }
 
         .value-card:hover {
-            transform: translateY(-10px) rotateY(10deg);
+            transform: translateY(-10px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
 
@@ -1025,15 +1141,32 @@
             color: var(--secondary);
             margin-bottom: 15px;
             transition: var(--transition);
+            position: relative;
+            z-index: 2;
         }
 
         .value-card:hover i {
-            transform: rotateY(180deg) scale(1.2);
+            transform: scale(1.2);
+            color: white;
         }
 
         .value-card h3 {
             color: var(--primary);
             margin-bottom: 10px;
+            transition: var(--transition);
+            position: relative;
+            z-index: 2;
+        }
+
+        .value-card p {
+            transition: var(--transition);
+            position: relative;
+            z-index: 2;
+        }
+
+        .value-card:hover h3,
+        .value-card:hover p {
+            color: white;
         }
 
         /* Contact */
@@ -1063,7 +1196,7 @@
         }
 
         .contact-info:hover i {
-            transform: scale(1.2) rotateY(180deg);
+            transform: scale(1.2);
         }
 
         /* Footer */
@@ -1304,7 +1437,7 @@
     <section class="section viz-section">
         <div class="container">
             <h2 class="section-title">The Visualization Board</h2>
-            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 40px; color: var(--dark);">ANY CHALLENGE? WE HAVE THE SOLUTION</p>
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 40px; color: var(--dark); font-weight: 600;">ANY CHALLENGE? WE HAVE THE SOLUTION</p>
             
             <div class="viz-container">
                 <div class="solution-center">
@@ -1330,24 +1463,24 @@
         <div class="container">
             <h2 class="section-title">About Us</h2>
             <div class="card">
-                <p>V-Pass 360° Advisory is a business financial consultancy which has been established to give specialized services through customer centered approach in addressing industry challenges. It serves as a strategic bridge for MSMEs that may lack access to high-end consultancy services from established advisory firms or lacks the capacity to invest in skilled, qualified talent.</p>
+                <p style="font-weight: 500;">V-Pass 360° Advisory is a business financial consultancy which has been established to give specialized services through customer centered approach in addressing industry challenges. It serves as a strategic bridge for MSMEs that may lack access to high-end consultancy services from established advisory firms or lacks the capacity to invest in skilled, qualified talent.</p>
             </div>
             <div class="card">
-                <p>We are keen in equipping businesses and its human capital through personalized training on a holistic approach in addressing business challenges and building a robust business strategy that is a cutting-edge in a competitive market environment.</p>
+                <p style="font-weight: 500;">We are keen in equipping businesses and its human capital through personalized training on a holistic approach in addressing business challenges and building a robust business strategy that is a cutting-edge in a competitive market environment.</p>
             </div>
             
             <div style="text-align: center; margin: 40px 0;">
-                <h3 style="font-style: italic; color: var(--primary); font-size: 1.5rem;">"Holistic Approach. Tailored for You"</h3>
+                <h3 style="font-style: italic; color: var(--primary); font-size: 1.5rem; font-weight: 600;">"Holistic Approach. Tailored for You"</h3>
             </div>
             
             <div class="grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
                 <div class="card">
                     <h3>Our Vision</h3>
-                    <p>To be the trusted catalyst for transformative business growth</p>
+                    <p style="font-weight: 500;">To be the trusted catalyst for transformative business growth</p>
                 </div>
                 <div class="card">
                     <h3>Our Mission</h3>
-                    <p>We deliver end-to-end, industry-specific solutions through a 360° approach that blends innovation, excellence, and integrity by empowering businesses to overcome challenges and thrive beyond expectations.</p>
+                    <p style="font-weight: 500;">We deliver end-to-end, industry-specific solutions through a 360° approach that blends innovation, excellence, and integrity by empowering businesses to overcome challenges and thrive beyond expectations.</p>
                 </div>
             </div>
         </div>
@@ -1361,10 +1494,10 @@
             <!-- CEO Section -->
             <div class="founder-section">
                 <div class="founder-image">
-                    <img src="https://via.placeholder.com/300x400/2d1b69/ffffff?text=Joshua+Mahigi" alt="Mr. Joshua Mahigi">
+                    <img src="./image.png" alt="Mr. Joshua Mahigi">
                 </div>
                 <div class="founder-info">
-                    <p style="margin-bottom: 20px; font-size: 1.1rem;">I am a passionate business leader with over 10 years of industry experience. My experience cuts across business planning and strategy, finance and accounting, financial planning and analysis, sales and operations planning as well as ERP systems implementation.</p>
+                    <p style="margin-bottom: 20px; font-size: 1.1rem; font-weight: 500;">I am a passionate business leader with over 10 years of industry experience. My experience cuts across business planning and strategy, finance and accounting, financial planning and analysis, sales and operations planning as well as ERP systems implementation.</p>
                     
                     <div class="card">
                         <h3 class="founder-name">Mr. Joshua Mahigi</h3>
@@ -1382,14 +1515,39 @@
                 </div>
             </div>
             
-            <!-- John Doe Section -->
-            <div class="founder-section" style="margin-top: 80px;">
+            <div class="founder-section">
+                <div class="founder-image">
+                    <img src="./image.png" alt="Mr. Joash Tumbo Nyamwaka">
+                </div>
                 <div class="founder-info">
-                    <p style="margin-bottom: 20px; font-size: 1.1rem;">John is a seasoned financial consultant with 8+ years of experience in business strategy and financial modeling. He specializes in helping SMEs optimize their financial operations and implement effective growth strategies.</p>
+                    <p style="margin-bottom: 20px; font-size: 1.1rem; font-weight: 500;">I am bla bla bla, here...</p>
                     
                     <div class="card">
-                        <h3 class="founder-name">Mr. John Doe</h3>
-                        <p class="founder-title">Senior Financial Consultant</p>
+                        <h3 class="founder-name">Mr. Joash Tumbo</h3>
+                        <p class="founder-title">Role to add</p>
+                        
+                        <div class="contact-info">
+                            <i class="fas fa-phone"></i>
+                            <span>Call: +254 712345678</span>
+                        </div>
+                        <div class="contact-info">
+                            <i class="fas fa-envelope"></i>
+                            <span>Email: 12345@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Team Members Section
+            <div class="team-section">
+                <div class="team-member">
+                    <div class="team-image">
+                        <img src="./image.png" alt="Mr Joash Tumbo Nyamwaka">
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Mr Joash Tumbo Nyamwaka</h3>
+                        <p class="team-role">Business Development Manager</p>
+                        <p style="font-weight: 500;">To update this later</p>
                         
                         <div class="contact-info">
                             <i class="fas fa-phone"></i>
@@ -1400,10 +1558,9 @@
                             <span>Email: johndoe@vpass.com</span>
                         </div>
                     </div>
-                </div>
-                <div class="founder-image">
-                    <img src="https://via.placeholder.com/300x400/00a896/ffffff?text=John+Doe" alt="Mr. John Doe">
-                </div>
+                </div> -->
+                
+
             </div>
         </div>
     </section>
@@ -1417,37 +1574,37 @@
                 <div class="why-card">
                     <i class="fas fa-chart-line"></i>
                     <h3>Proven Experience</h3>
-                    <p>We possess over 10 years hands-on experience in different cross-functional departments and industries.</p>
+                    <p style="font-weight: 500;">We possess over 10 years hands-on experience in different cross-functional departments and industries.</p>
                 </div>
                 
                 <div class="why-card">
                     <i class="fas fa-hand-holding-usd"></i>
                     <h3>Value for Money</h3>
-                    <p>We deploy efficient and cost-effective approach in building workable industry models from start-ups to well established entities.</p>
+                    <p style="font-weight: 500;">We deploy efficient and cost-effective approach in building workable industry models from start-ups to well established entities.</p>
                 </div>
                 
                 <div class="why-card">
                     <i class="fas fa-sync-alt"></i>
                     <h3>Our Approach</h3>
-                    <p>We give a 360° approach in providing end-to-end tailored industry specific solutions to business challenges.</p>
+                    <p style="font-weight: 500;">We give a 360° approach in providing end-to-end tailored industry specific solutions to business challenges.</p>
                 </div>
                 
                 <div class="why-card">
                     <i class="fas fa-star"></i>
                     <h3>Our Values</h3>
-                    <p>We execute with high level of excellence, quality service delivery, integrity and going beyond.</p>
+                    <p style="font-weight: 500;">We execute with high level of excellence, quality service delivery, integrity and going beyond.</p>
                 </div>
             </div>
             
             <h3 class="section-title" style="font-size: 2rem; margin-top: 60px;">We deliver success</h3>
-            <p style="text-align: center; margin-bottom: 40px; font-size: 1.1rem;">Executed projects Portfolio</p>
+            <p style="text-align: center; margin-bottom: 40px; font-size: 1.1rem; font-weight: 600;">Executed projects Portfolio</p>
             
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-number">01</div>
                     <div class="timeline-content">
                         <h3>Financial modelling for fundraising</h3>
-                        <p>Sub & Lease Book Transaction model for Chit Chemicals Ltd and Working capital fundraising model for Tofo Gas Kenya Ltd</p>
+                        <p style="font-weight: 500;">Sub & Lease Book Transaction model for Chit Chemicals Ltd and Working capital fundraising model for Tofo Gas Kenya Ltd</p>
                     </div>
                 </div>
                 
@@ -1455,7 +1612,7 @@
                     <div class="timeline-number">02</div>
                     <div class="timeline-content">
                         <h3>SAP B1 Implementation</h3>
-                        <p>Project lead for SAP implementation at Bio Food Products LLC & Healthy-U2000 Ltd</p>
+                        <p style="font-weight: 500;">Project lead for SAP implementation at Bio Food Products LLC & Healthy-U2000 Ltd</p>
                     </div>
                 </div>
                 
@@ -1463,7 +1620,7 @@
                     <div class="timeline-number">03</div>
                     <div class="timeline-content">
                         <h3>SAP R3/ECC 6.0 & S4/HANA Optimization</h3>
-                        <p>System Gap assessment and requirements Gathering Lead at Orbit Products Africa Ltd and Photo Energy</p>
+                        <p style="font-weight: 500;">System Gap assessment and requirements Gathering Lead at Orbit Products Africa Ltd and Photo Energy</p>
                     </div>
                 </div>
                 
@@ -1471,7 +1628,7 @@
                     <div class="timeline-number">04</div>
                     <div class="timeline-content">
                         <h3>Operational Efficiency</h3>
-                        <p>Design & implementation of Git database at Bio Food Products Ltd and, Vehicle Tracking device/telematics and Route to Market distribution software roll-out at Tofo Gas Kenya Ltd</p>
+                        <p style="font-weight: 500;">Design & implementation of Git database at Bio Food Products Ltd and, Vehicle Tracking device/telematics and Route to Market distribution software roll-out at Tofo Gas Kenya Ltd</p>
                     </div>
                 </div>
                 
@@ -1479,7 +1636,7 @@
                     <div class="timeline-number">05</div>
                     <div class="timeline-content">
                         <h3>Commercial</h3>
-                        <p>Product costing & pricing at Kenville Industries Ltd, Orbit Products Africa Ltd, Bio Food Products & Tofo Gas Kenya Ltd</p>
+                        <p style="font-weight: 500;">Product costing & pricing at Kenville Industries Ltd, Orbit Products Africa Ltd, Bio Food Products & Tofo Gas Kenya Ltd</p>
                     </div>
                 </div>
                 
@@ -1487,7 +1644,7 @@
                     <div class="timeline-number">06</div>
                     <div class="timeline-content">
                         <h3>Internal Controls</h3>
-                        <p>Implementation of petty-cash management systems at Tofo Gas Kenya Ltd, process mapping & documentation at Kenville Industries and internal audit at Giboselli Missions Church</p>
+                        <p style="font-weight: 500;">Implementation of petty-cash management systems at Tofo Gas Kenya Ltd, process mapping & documentation at Kenville Industries and internal audit at Giboselli Missions Church</p>
                     </div>
                 </div>
             </div>
@@ -1502,32 +1659,32 @@
             <div class="services-grid">
                 <div class="service-card">
                     <h3>Finance & Accounting</h3>
-                    <p>Book keeping, financial reporting, financial modelling, financial planning and analytics.</p>
+                    <p style="font-weight: 500;">Book keeping, financial reporting, financial modelling, financial planning and analytics.</p>
                 </div>
                 
                 <div class="service-card">
                     <h3>Operational Excellence</h3>
-                    <p>(OEE) assessments, HSE metrics, logistics design, process mapping and data support.</p>
+                    <p style="font-weight: 500;">(OEE) assessments, HSE metrics, logistics design, process mapping and data support.</p>
                 </div>
                 
                 <div class="service-card">
                     <h3>Commercial Insights</h3>
-                    <p>Pricing models, commercial strategy - ROI on promotions, sales commission structure, managing JBPs.</p>
+                    <p style="font-weight: 500;">Pricing models, commercial strategy - ROI on promotions, sales commission structure, managing JBPs.</p>
                 </div>
                 
                 <div class="service-card">
                     <h3>Tax Services & Compliance</h3>
-                    <p>Tax objection applications, tax assessments audits, tax refunds, application and audits, filing at statutory returns.</p>
+                    <p style="font-weight: 500;">Tax objection applications, tax assessments audits, tax refunds, application and audits, filing at statutory returns.</p>
                 </div>
                 
                 <div class="service-card">
                     <h3>Internal Audit</h3>
-                    <p>Internal controls documentation, implementation and monitoring.</p>
+                    <p style="font-weight: 500;">Internal controls documentation, implementation and monitoring.</p>
                 </div>
                 
                 <div class="service-card">
                     <h3>Personalized Training</h3>
-                    <p>Company specific training on financial modelling, data analysis and strategy design.</p>
+                    <p style="font-weight: 500;">Company specific training on financial modelling, data analysis and strategy design.</p>
                 </div>
             </div>
         </div>
@@ -1558,15 +1715,15 @@
                         <div class="methods-grid">
                             <div class="method">
                                 <div class="method-number">01</div>
-                                <p>Personalized Learning</p>
+                                <p style="font-weight: 500;">Personalized Learning</p>
                             </div>
                             <div class="method">
                                 <div class="method-number">02</div>
-                                <p>Collaborative/Group Learning/ Discussions</p>
+                                <p style="font-weight: 500;">Collaborative/Group Learning/ Discussions</p>
                             </div>
                             <div class="method">
                                 <div class="method-number">03</div>
-                                <p>Case Study</p>
+                                <p style="font-weight: 500;">Case Study</p>
                             </div>
                         </div>
                     </div>
@@ -1630,25 +1787,25 @@
                 <div class="value-card">
                     <i class="fas fa-star"></i>
                     <h3>Excellence</h3>
-                    <p>We never settle for "good enough."</p>
+                    <p style="font-weight: 500;">We never settle for "good enough."</p>
                 </div>
                 
                 <div class="value-card">
                     <i class="fas fa-award"></i>
                     <h3>Quality</h3>
-                    <p>Our every service and interaction reflects our dedication to doing things right: with precision, care, and consistency.</p>
+                    <p style="font-weight: 500;">Our every service and interaction reflects our dedication to doing things right: with precision, care, and consistency.</p>
                 </div>
                 
                 <div class="value-card">
                     <i class="fas fa-shield-alt"></i>
                     <h3>Integrity</h3>
-                    <p>We lead with honesty, act with transparency, and hold ourselves accountable.</p>
+                    <p style="font-weight: 500;">We lead with honesty, act with transparency, and hold ourselves accountable.</p>
                 </div>
                 
                 <div class="value-card">
                     <i class="fas fa-rocket"></i>
                     <h3>Innovation</h3>
-                    <p>We ask "what's next?" and daring to find out.</p>
+                    <p style="font-weight: 500;">We ask "what's next?" and daring to find out.</p>
                 </div>
             </div>
         </div>
@@ -1674,7 +1831,7 @@
                 
                 <div class="card">
                     <h3>Our Commitment</h3>
-                    <p>We deliver success through our 360° approach, combining proven experience with innovative solutions tailored to your specific business needs.</p>
+                    <p style="font-weight: 500;">We deliver success through our 360° approach, combining proven experience with innovative solutions tailored to your specific business needs.</p>
                 </div>
             </div>
         </div>
@@ -1684,10 +1841,10 @@
     <footer>
         <div class="container">
             <p style="font-size: 1.5rem; font-weight: 700; margin-bottom: 20px;">V-PASS 360° Advisory</p>
-            <p style="margin-bottom: 20px;">Empowering Businesses to Thrive</p>
+            <p style="margin-bottom: 20px; font-weight: 500;">Empowering Businesses to Thrive</p>
             
             <div style="margin-bottom: 20px;">
-                <p>Call: +254 724428303 | Email: mahigj@gmail.com</p>
+                <p style="font-weight: 500;">Call: +254 724428303 | Email: mahigj@gmail.com</p>
             </div>
             
             <p style="margin-top: 30px; opacity: 0.8;">&copy; 2023 V-PASS 360° Advisory. All rights reserved.</p>
